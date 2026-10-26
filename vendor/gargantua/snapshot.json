@@ -2,7 +2,7 @@
   "name": "gargantua-animation",
   "version": "0.2.0",
   "files": {
-    "src/core.js": "3e86ac45b5596ad90c66097424ddc9ff94f50770504d97754faae6fbff88d513",
+    "src/core.js": "5dc2fce82787a301423e70f90941d7f233956d0e230feb7e5a1ee9952d91f504",
     "src/config.js": "16fd385dde3688d04fa32111ee5bf38a75a1a97ed22ab7ba344e40db5dfe83b2",
     "src/blackhole.js": "979fa2905356fe4ce62945f6a85208806ccebfd8c2a78f611ae6291dadcb08a8",
     "src/blackhole-shader.js": "f1260204a3b2c92b1f2135b16f041cf207b53e8e6b1bb11acaeb72a3d0e3365c",
