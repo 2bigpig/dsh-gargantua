@@ -1,0 +1,16 @@
+{
+  "name": "gargantua-animation",
+  "version": "0.2.0",
+  "files": {
+    "src/core.js": "3e86ac45b5596ad90c66097424ddc9ff94f50770504d97754faae6fbff88d513",
+    "src/config.js": "16fd385dde3688d04fa32111ee5bf38a75a1a97ed22ab7ba344e40db5dfe83b2",
+    "src/blackhole.js": "979fa2905356fe4ce62945f6a85208806ccebfd8c2a78f611ae6291dadcb08a8",
+    "src/blackhole-shader.js": "f1260204a3b2c92b1f2135b16f041cf207b53e8e6b1bb11acaeb72a3d0e3365c",
+    "assets/desktop.jpg": "3891baff9c0ac8ed235229c59c6551b0a65472807f37fd314f459a552abbf974",
+    "assets/tablet.jpg": "11db0c4ab224b8c4141e3209fc43b34979edff8f4dfbbd141b8b88dcee0b6653",
+    "assets/mobile.jpg": "a221f2e54a0c72bc17200b9c31d78490f1a2337db32301b8495dc8a310e26e0a",
+    "LICENSE": "773417c39060b0fcaf42a6813085b6a1f3821da4dcb259b2965de1598eb3e036",
+    "licenses/webgpu-black-hole-MIT.txt": "dd8bc01a3f144f07901728ce9947717d1b046d9071e5d4e1b73be9a118467989",
+    "licenses/three-MIT.txt": "bfe119ea4fd413f5f7ca3fcd63adb0c4a073ed39daa2fe7d3e6b769e21272601"
+  }
+}

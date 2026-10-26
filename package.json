@@ -1,0 +1,75 @@
+{
+  "name": "dsh-gargantua",
+  "version": "0.2.0",
+  "description": "Gargantua black hole for DSH / DeepSeek Harness — Interstellar-inspired background｜卡冈图雅黑洞 · 星际穿越动态背景插件",
+  "type": "module",
+  "main": "index.js",
+  "author": "2bigpig",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22"
+  },
+  "exports": {
+    ".": "./index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-conversation"
+      ]
+    }
+  },
+  "files": [
+    "index.js",
+    "cordis.patch.yml",
+    "lib/",
+    "locale/",
+    "icon.svg",
+    "src/",
+    "vendor/",
+    "scripts/",
+    "licenses/",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md",
+    "README.md",
+    "README.en.md",
+    "package-lock.json",
+    "INSTALL_FOR_AI.md"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "sync:engine": "node scripts/sync-engine.mjs"
+  },
+  "keywords": [
+    "gargantua",
+    "black-hole",
+    "interstellar",
+    "webgpu",
+    "threejs",
+    "animation",
+    "dsh",
+    "deepseek-harness",
+    "dsh-plugin"
+  ],
+  "devDependencies": {
+    "three": "0.181.1",
+    "esbuild": "0.25.12"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/2bigpig/dsh-gargantua.git"
+  },
+  "homepage": "https://github.com/2bigpig/dsh-gargantua#readme",
+  "bugs": {
+    "url": "https://github.com/2bigpig/dsh-gargantua/issues"
+  }
+}
