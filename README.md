@@ -1,8 +1,8 @@
 # Gargantua Black Hole for DSH · 卡冈图雅黑洞插件
 
-给 **DeepSeek Harness** 会话中栏加上《星际穿越》**Interstellar** 风格的实时 4K 黑洞。新会话醒目、聊天变淡；不覆盖侧栏，不拦截输入、滚动和选择。**0.2.0 · 已验证 Desktop 0.2.1-rc.3**。
+给 **DeepSeek Harness** 会话中栏加上《星际穿越》**Interstellar** 风格的实时 4K 黑洞。新会话醒目、聊天变淡；不覆盖侧栏，不拦截输入、滚动和选择。**0.2.1 · 已验证 Desktop 0.2.1-rc.3**。
 
-[下载插件](https://github.com/2bigpig/dsh-gargantua/releases/download/v0.2.0/dsh-gargantua-0.2.0.tgz) · [纯动画实时预览](https://2bigpig.github.io/gargantua/) · [动画源码](https://github.com/2bigpig/gargantua) · [English](README.en.md)
+[下载插件](https://github.com/2bigpig/dsh-gargantua/releases/download/v0.2.1/dsh-gargantua-0.2.1.tgz) · [纯动画实时预览](https://2bigpig.github.io/gargantua/) · [动画源码](https://github.com/2bigpig/gargantua) · [English](README.en.md)
 
 ![真实 DSH Desktop：新会话与聊天背景演示](docs/demo.gif)
 
@@ -18,18 +18,26 @@ DSH Desktop 0.2.1-rc.3 请先切换到 **Creator 模式**，让 AI 使用官方 
 
 ## 手动安装与卸载
 
-从 [v0.2.0 Release](https://github.com/2bigpig/dsh-gargantua/releases/tag/v0.2.0) 下载 `dsh-gargantua-0.2.0.tgz`，无需 Node.js 或自行构建。Release 附 `SHA256SUMS.txt`。
+从 [v0.2.1 Release](https://github.com/2bigpig/dsh-gargantua/releases/tag/v0.2.1) 下载 `dsh-gargantua-0.2.1.tgz`，无需 Node.js 或自行构建。Release 附 `SHA256SUMS.txt`。
 
 **Desktop：** 打开侧栏「插件」→「添加插件」，在包名或地址中粘贴下载包的绝对路径或上方下载链接，安装后点击「立即启用」。选择工作区，打开新会话查看。插件详情页可禁用或卸载。旧版需先卸载再安装新版；Desktop profile 由应用管理，不能用 CLI 修改。
 
 **Web：** 已安装 DSH CLI 时，对实际使用的 Web profile 执行：
 
 ```sh
-dsh plugin --profile web add "https://github.com/2bigpig/dsh-gargantua/releases/download/v0.2.0/dsh-gargantua-0.2.0.tgz"
+dsh plugin --profile web add "https://github.com/2bigpig/dsh-gargantua/releases/download/v0.2.1/dsh-gargantua-0.2.1.tgz"
 dsh plugin --profile web remove dsh-gargantua
 ```
 
 若 profile 名不同，替换为当前使用的名称。根据宿主返回结果刷新或重启；不要把安装包下载成功当成插件已启用。
+
+## 自动切换深色
+
+每次启用插件或启动 DSH，插件等待宿主主题设置加载后，使用官方主题接口将**整个 DSH 切为深色并保存**。每次初始化只执行一次；发送消息、切换会话不会重复切换。随后可在「设置 → 通用设置」手动改回浅色或跟随系统，停用和卸载不会恢复旧主题。下次启用或启动会再次选择深色。
+
+这是为避免浅色聊天背景中黑洞几乎不可见。若设置只读、加载或保存失败，插件控制台会记录诊断，不反复强制切换；请在「设置 → 通用设置 → 深色」手动选择。
+
+已有用户需升级到 v0.2.1，仓库更新不会自动替换本机插件。
 
 ## 固定行为与兼容性
 
@@ -54,7 +62,7 @@ npm run build
 npm pack
 ```
 
-生成 `lib/client.js` 和 `dsh-gargantua-0.2.0.tgz`。普通构建只使用仓库内 `vendor/gargantua` 固定快照，不要求相邻动画目录。维护时显式同步：
+生成 `lib/client.js` 和 `dsh-gargantua-0.2.1.tgz`。普通构建只使用仓库内 `vendor/gargantua` 固定快照，不要求相邻动画目录。维护时显式同步：
 
 ```sh
 npm run sync:engine -- "<gargantua 源码目录>"

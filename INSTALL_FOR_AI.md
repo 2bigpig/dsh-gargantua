@@ -4,11 +4,17 @@
 
 ## 固定安装目标
 
-- 名称：`dsh-gargantua`；版本：`0.2.0`。
+- 名称：`dsh-gargantua`；版本：`0.2.1`。
 - 已验证宿主：DeepSeek Harness Desktop `0.2.1-rc.3`。
-- 预构建安装包：https://github.com/2bigpig/dsh-gargantua/releases/download/v0.2.0/dsh-gargantua-0.2.0.tgz
-- SHA-256：https://github.com/2bigpig/dsh-gargantua/releases/download/v0.2.0/SHA256SUMS.txt
+- 预构建安装包：https://github.com/2bigpig/dsh-gargantua/releases/download/v0.2.1/dsh-gargantua-0.2.1.tgz
+- SHA-256：https://github.com/2bigpig/dsh-gargantua/releases/download/v0.2.1/SHA256SUMS.txt
 - 无需克隆源码、Node.js 开发环境、npm 发布、模型密钥或自行构建。
+
+## 主题变化（安装与验证必读）
+
+启用本版本会通过官方主题服务，将当前目标 DSH 的整个界面切为深色并保存；每次插件初始化或 DSH 启动执行一次。用户之后可手动切换主题，停用或卸载保留当前主题。不要额外改字体或其他偏好，也不要锁定深色。
+
+验证安装时同时检查深色实际生效；仅安装清单成功不能证明主题已切换。若自动切换失败，通过官方设置界面「设置 → 通用设置 → 深色」处理；无法操作界面时如实说明，并提供此手动路径。若相同版本已启用但用户选择了浅色，也使用该设置路径，不反复重装插件。
 
 ## A. 在 DSH 自身的 AI 中安装（优先）
 
@@ -21,7 +27,7 @@ Desktop rc.3 使用 **Creator 模式**提供的 `plugin_manager`。工具不可�
 ```json
 {
   "action": "install_bundle",
-  "target": "https://github.com/2bigpig/dsh-gargantua/releases/download/v0.2.0/dsh-gargantua-0.2.0.tgz",
+  "target": "https://github.com/2bigpig/dsh-gargantua/releases/download/v0.2.1/dsh-gargantua-0.2.1.tgz",
   "enabled": true
 }
 ```
@@ -48,21 +54,21 @@ Desktop rc.3 使用 **Creator 模式**提供的 `plugin_manager`。工具不可�
 确认已安装 DSH CLI，识别实际使用的 Web profile；不要因为名称未知就默认修改 Desktop。默认 Web profile 的命令为：
 
 ```sh
-dsh plugin --profile web add "https://github.com/2bigpig/dsh-gargantua/releases/download/v0.2.0/dsh-gargantua-0.2.0.tgz"
+dsh plugin --profile web add "https://github.com/2bigpig/dsh-gargantua/releases/download/v0.2.1/dsh-gargantua-0.2.1.tgz"
 ```
 
 命名 profile 应替换为用户实际使用的名称。已安装同版本先检查启用状态；升级前通过官方插件管理工具或 CLI 移除旧包，再安装。根据宿主结果刷新或重启，并在真实会话验证。
 
 ## 完成标准与卸载
 
-包版本为 0.2.0、bundle 已启用且无加载错误；有界面能力时核对新会话黑洞可见、聊天变淡、背景不妨碍输入。只能验证安装清单而不能观察画面时，明确说明视觉未验证。下载成功或包管理器退出码为零不等于插件实际加载成功。
+包版本为 0.2.1、bundle 已启用且无加载错误、DSH 深色主题已生效；有界面能力时核对新会话黑洞可见、聊天变淡、背景不妨碍输入。只能验证安装清单而不能观察画面时，明确说明视觉未验证。下载成功或包管理器退出码为零不等于插件实际加载成功。
 
 Desktop 可在插件详情页禁用或卸载，也可用 `plugin_manager` 的 `set_bundle` 或 `remove_bundle`。Web 使用 `dsh plugin --profile <实际名称> remove dsh-gargantua`。网络、权限、兼容性或显卡失败应报告实际状态，不自动降低画质、不授予版本豁免。
 
 ## English agent instructions
 
-Identify the intended Desktop or Web profile first. The fixed artifact is the v0.2.0 tgz linked above; no source build or credentials are needed. Prefer DSH's official `plugin_manager` in **Creator mode on Desktop rc.3**: list bundles first, avoid reinstalling an active identical version, enable a disabled identical version, otherwise install using the exact JSON above. For upgrades, remove the old bundle through official tools before installing. Respect approvals and follow `application` / `nextStep`; a restart requirement is not completed activation.
+Identify the intended Desktop or Web profile first. The fixed artifact is the v0.2.1 tgz linked above; no source build or credentials are needed. Prefer DSH's official `plugin_manager` in **Creator mode on Desktop rc.3**: list bundles first, avoid reinstalling an active identical version, enable a disabled identical version, otherwise install using the exact JSON above. For upgrades, remove the old bundle through official tools before installing. Respect approvals and follow `application` / `nextStep`; a restart requirement is not completed activation.
 
 External agents with desktop control may download and checksum the tgz, then use Plugins → Add plugin → absolute package path → Install → Enable now. Terminal-only external agents must not directly edit Desktop profiles or claim unattended Desktop installation. They may install into a confirmed Web profile through the documented CLI.
 
-Verify version, activation and absence of loading errors. When UI access exists, check the new-conversation background and dimming during chat without blocking typing. Report unverified visual state honestly. Uninstall through the same official manager or Web CLI. Never request account secrets or bypass permissions.
+Activation switches the entire target DSH interface to Dark through the official theme service and saves it once per initialization or app start. Users can subsequently change appearance; disabling/uninstalling retains their current preference. Do not change fonts or enforce Dark continuously. Verify the saved Dark appearance as well as version, activation and absence of loading errors. If automatic selection fails, use Settings → General → Dark through the official UI; if UI access is unavailable, report that limitation and give the manual path. When UI access exists, check the new-conversation background and dimming during chat without blocking typing. Report unverified visual state honestly. Uninstall through the same official manager or Web CLI. Never request account secrets or bypass permissions.

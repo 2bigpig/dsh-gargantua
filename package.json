@@ -1,6 +1,6 @@
 {
   "name": "dsh-gargantua",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Gargantua black hole for DSH / DeepSeek Harness — Interstellar-inspired background｜卡冈图雅黑洞 · 星际穿越动态背景插件",
   "type": "module",
   "main": "index.js",
@@ -24,7 +24,8 @@
       "platform": "web",
       "immediately": true,
       "inject": [
-        "@deepseek-ai/dsh-client-ui-conversation"
+        "@deepseek-ai/dsh-client-ui-conversation",
+        "@deepseek-ai/dsh-client-ui-theme"
       ]
     }
   },

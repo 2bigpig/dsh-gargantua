@@ -5,7 +5,7 @@ on:
       tag:
         description: Existing version tag
         required: true
-        default: v0.2.0
+        default: v0.2.1
 permissions:
   contents: write
 jobs:
@@ -26,7 +26,7 @@ jobs:
           mkdir -p artifacts
           npm pack --pack-destination artifacts
           cd artifacts
-          sha256sum dsh-gargantua-0.2.0.tgz > SHA256SUMS.txt
+          sha256sum *.tgz > SHA256SUMS.txt
       # 在 GitHub 内生成和上传，避免本地下载域名连接中断影响发布。
       - name: Publish artifacts
         env:
@@ -36,7 +36,7 @@ jobs:
         run: |
           [[ "$TAG" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]
           test "$TAG" = "v$(node -p "require('./package.json').version")"
-          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --verify-tag --draft --title "Gargantua $TAG · 4K Black Hole" --notes "Fixed 3840×2160 continuous animation. See README for downloads, usage and upstream MIT credits."
-          gh release upload "$TAG" artifacts/dsh-gargantua-0.2.0.tgz artifacts/SHA256SUMS.txt --clobber
+          gh release view "$TAG" >/dev/null 2>&1 || gh release create "$TAG" --verify-tag --draft --title "Gargantua $TAG · 4K Black Hole" --notes "Automatically selects and saves Dark appearance once per plugin activation or DSH start; manual appearance changes remain available. Fixed 3840×2160 continuous animation. See README for usage and upstream MIT credits."
+          gh release upload "$TAG" artifacts/*.tgz artifacts/SHA256SUMS.txt --clobber
           gh release edit "$TAG" --draft=false --latest
 
